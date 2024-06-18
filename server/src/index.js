@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const sequelize = require('./database');
@@ -7,6 +8,9 @@ const { Physician, Patient } = require('./models');
 const app = express();
 const PORT = 3001;
 const SECRET_KEY = 'your_secret_key'; // Replace with a secure key in production
+
+// Enable CORS for all routes
+app.use(cors());
 
 app.use(express.json());
 
